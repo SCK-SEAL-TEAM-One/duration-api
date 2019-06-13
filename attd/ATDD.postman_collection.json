@@ -185,7 +185,7 @@
 			"response": []
 		},
 		{
-			"name": "calculate duration between Karn's birthday and 10 June 2019  Copy",
+			"name": "calculate duration between Karn's birthday and 10 June 2019",
 			"event": [
 				{
 					"listen": "test",
