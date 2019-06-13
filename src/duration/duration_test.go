@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestInputJsonText_Day_16_Month_10_Year_1997_Should_1997_10_Month_Year_16_Day(t *testing.T){
+func TestInputJsonText_Year_1997_Month_10_Day_16_Should_Year_1997_Month_10_Year_Day_16(t *testing.T){
 	expectedResultYear := 1997
 	expectedResultMonth := 10
 	expectedResultDay := 16
