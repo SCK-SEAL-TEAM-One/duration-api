@@ -1,6 +1,7 @@
 package api
 
 import (
+	"io/ioutil"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -60,17 +61,8 @@ func DurationBetweenTimes(writer http.ResponseWriter, request *http.Request)  {
 }
 
 func GetYearMonthDayFromRequestDate(request *http.Request) RequestDate{
-		requestDate := RequestDate{
-			Start : YearMonthDay{
-				Year : 1997,
-				Month : 10,
-				Day : 16,
-			},
-			End : YearMonthDay{
-				Year : 2019,
-				Month : 6,
-				Day : 10,
-			},
-		}
+	body, _ := ioutil.ReadAll(request.Body)
+	var requestDate RequestDate
+	_ = json.Unmarshal(body,&requestDate)
 		return requestDate
 }
