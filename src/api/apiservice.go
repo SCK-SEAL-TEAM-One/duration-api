@@ -36,8 +36,6 @@ type Duration struct {
 	Seconds int `json:"seconds"`
 	Minutes int `json:"minutes"`
 	Hours int `json:"hours"`
-	
-	
 }
 
 func DurationBetweenTimes(writer http.ResponseWriter, request *http.Request)  {
@@ -59,4 +57,20 @@ func DurationBetweenTimes(writer http.ResponseWriter, request *http.Request)  {
 		}
 		durationjson,_ := json.Marshal(duration)
 		fmt.Fprint(writer, string(durationjson))
+}
+
+func GetYearMonthDayFromRequestDate(request *http.Request) RequestDate{
+		requestDate := RequestDate{
+			Start : YearMonthDay{
+				Year : 1997,
+				Month : 10,
+				Day : 16,
+			},
+			End : YearMonthDay{
+				Year : 2019,
+				Month : 6,
+				Day : 10,
+			},
+		}
+		return requestDate
 }

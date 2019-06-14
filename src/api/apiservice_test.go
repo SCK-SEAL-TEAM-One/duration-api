@@ -18,9 +18,23 @@ func TestApiDurationBetweenTimesPut_StartDay_16_StartMonth_10_StartYear_1997_End
 	responseBodyRaw, _ := ioutil.ReadAll(response.Body)
 	responseBody := string(responseBodyRaw)
 
-
-
 	if expectedResult != responseBody {
 		 t.Errorf("need %v but got %v",expectedResult,responseBody)
+	}
+}
+
+func Test_Request_StartDay_16_StartMonth_10_StartYear_1997_EndDay_10_EndMonth_6_EndYear_2019_Should_Get_DayMonthYear(t *testing.T){
+	url := "/duration"
+	body := strings.NewReader(`{"Start": {"day": 16,"month": 10,"year": 1997},"End": {"day": 10,"month": 6,"year": 2019}}`)
+	request := httptest.NewRequest("GET",url,body)
+	expectedResult := RequestDate{
+		Start:YearMonthDay{Year:1997, Month:10, Day:16,},
+		End:YearMonthDay{Year:2019, Month:6, Day:10,},
+	}
+
+	actualResult := GetYearMonthDayFromRequestDate(request)
+
+	if expectedResult != actualResult {
+		 t.Errorf("need %v but got %v",expectedResult,actualResult)
 	}
 }
