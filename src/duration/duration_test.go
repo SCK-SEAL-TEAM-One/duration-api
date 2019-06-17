@@ -1,13 +1,13 @@
 package duration
 
 import (
-	api "../api"
+	. "../models"
 	"testing"
 	"time"
 )
 
 func Test_ConvertYearMonthDayToTime_1997_Year_10_Month_16_Day_Should_Time_Year_1997_Month_10_Day_16(t *testing.T) {
-	yearmonthday := api.YearMonthDay{
+	yearmonthday := YearMonthDay{
 		Year:  1997,
 		Month: 10,
 		Day:   16,
@@ -23,7 +23,7 @@ func Test_ConvertYearMonthDayToTime_1997_Year_10_Month_16_Day_Should_Time_Year_1
 }
 
 func Test_ConvertYearMonthDayToTime_1997_Year_10_Month_27_Day_Should_Time_Year_1997_Month_10_Day_27(t *testing.T) {
-	yearmonthday := api.YearMonthDay{
+	yearmonthday := YearMonthDay{
 		Year:  1997,
 		Month: 10,
 		Day:   27,
@@ -39,7 +39,7 @@ func Test_ConvertYearMonthDayToTime_1997_Year_10_Month_27_Day_Should_Time_Year_1
 }
 
 func Test_ConvertYearMonthDayToTime_1996_Year_2_Month_5_Day_Should_Time_Year_1996_Month_2_Day_5(t *testing.T) {
-	yearmonthday := api.YearMonthDay{
+	yearmonthday := YearMonthDay{
 		Year:  1996,
 		Month: 2,
 		Day:   5,
@@ -55,7 +55,7 @@ func Test_ConvertYearMonthDayToTime_1996_Year_2_Month_5_Day_Should_Time_Year_199
 }
 
 func Test_ConvertYearMonthDayToTime_2019_Year_6_Month_10_Day_Should_Time_Year_2019_Month_6_Day_10(t *testing.T) {
-	yearmonthday := api.YearMonthDay{
+	yearmonthday := YearMonthDay{
 		Year:  2019,
 		Month: 6,
 		Day:   10,
@@ -242,9 +242,9 @@ func Test_GetHoursFromDuration_Duration_736646400_Seconds_Should_204624_Hours(t 
 }
 
 func Test_ConvertDaysToWeeks_7907_Days_Should_Weeks_1129_DaysInWeek_4(t *testing.T) {
-	weekday := api.WeekDay{
-		Weeks:1129,
-		Days:4,
+	weekday := WeekDay{
+		Weeks: 1129,
+		Days:  4,
 	}
 
 	expectedResult := weekday
@@ -257,9 +257,9 @@ func Test_ConvertDaysToWeeks_7907_Days_Should_Weeks_1129_DaysInWeek_4(t *testing
 }
 
 func Test_ConvertDaysToWeeks_7896_Days_Should_Weeks_1128_DaysInWeek_0(t *testing.T) {
-	weekday := api.WeekDay{
-		Weeks:1128,
-		Days:0,
+	weekday := WeekDay{
+		Weeks: 1128,
+		Days:  0,
 	}
 
 	expectedResult := weekday
@@ -272,9 +272,9 @@ func Test_ConvertDaysToWeeks_7896_Days_Should_Weeks_1128_DaysInWeek_0(t *testing
 }
 
 func Test_ConvertDaysToWeeks_8526_Days_Should_Weeks_1218_DaysInWeek_0(t *testing.T) {
-	weekday := api.WeekDay{
-		Weeks:1218,
-		Days:0,
+	weekday := WeekDay{
+		Weeks: 1218,
+		Days:  0,
 	}
 
 	expectedResult := weekday
@@ -287,18 +287,18 @@ func Test_ConvertDaysToWeeks_8526_Days_Should_Weeks_1218_DaysInWeek_0(t *testing
 }
 
 func Test_CalculateMonthsBetweenStartTimeAndEndTime_StartYear_1997_StartMonth_10_StartDay_16_And_EndYear_2019_EndMonth_06_EndDay_10_Should_259_Months_25_Days(t *testing.T) {
-	starttime := api.YearMonthDay{
+	starttime := YearMonthDay{
 		Year:1997,
 		Month:10,
 		Day:16,
 	}
-	endtime := api.YearMonthDay{
+	endtime := YearMonthDay{
 		Year:2019,
 		Month:6,
 		Day:10,
 	}
 
-	expectedResult := api.MonthDay{
+	expectedResult := MonthDay{
 		Months:259,
 		Days:25,
 	}
@@ -311,18 +311,18 @@ func Test_CalculateMonthsBetweenStartTimeAndEndTime_StartYear_1997_StartMonth_10
 }
 
 func Test_CalculateMonthsBetweenStartTimeAndEndTime_StartYear_1997_StartMonth_10_StartDay_27_And_EndYear_2019_EndMonth_06_EndDay_10_Should_259_Months_14_Days(t *testing.T) {
-	starttime := api.YearMonthDay{
+	starttime := YearMonthDay{
 		Year:1997,
 		Month:10,
 		Day:27,
 	}
-	endtime := api.YearMonthDay{
+	endtime := YearMonthDay{
 		Year:2019,
 		Month:6,
 		Day:10,
 	}
 
-	expectedResult := api.MonthDay{
+	expectedResult := MonthDay{
 		Months:259,
 		Days:14,
 	}
@@ -335,18 +335,18 @@ func Test_CalculateMonthsBetweenStartTimeAndEndTime_StartYear_1997_StartMonth_10
 }
 
 func Test_CalculateMonthsBetweenStartTimeAndEndTime_StartYear_1996_StartMonth_2_StartDay_5_And_EndYear_2019_EndMonth_06_EndDay_10_Should_259_Months_14_Days(t *testing.T) {
-	starttime := api.YearMonthDay{
+	starttime := YearMonthDay{
 		Year:1996,
 		Month:2,
 		Day:5,
 	}
-	endtime := api.YearMonthDay{
+	endtime := YearMonthDay{
 		Year:2019,
 		Month:6,
 		Day:10,
 	}
 
-	expectedResult := api.MonthDay{
+	expectedResult := MonthDay{
 		Months:280,
 		Days:5,
 	}
