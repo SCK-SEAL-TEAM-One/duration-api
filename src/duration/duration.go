@@ -11,6 +11,6 @@ func ConvertTimeToFullDate(time time.Time) string {
 	month := time.Month()
 	day := time.Day()
 	fullDate := fmt.Sprintf("%s, %v %v %v", weekDay, day, month, year)
-	
+
 	return fullDate
 }
