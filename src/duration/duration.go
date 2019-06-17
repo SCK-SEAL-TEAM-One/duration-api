@@ -1,12 +1,12 @@
 package duration
 
 import (
-	api "../api"
+	. "../models"
 	"fmt"
 	"time"
 )
 
-func ConvertYearMonthDayToTime(yearmonthday api.YearMonthDay) time.Time {
+func ConvertYearMonthDayToTime(yearmonthday YearMonthDay) time.Time {
 	return time.Date(yearmonthday.Year, time.Month(yearmonthday.Month), yearmonthday.Day, 0, 0, 0, 0, time.UTC)
 }
 
@@ -35,11 +35,11 @@ func GetHoursFromDuration(duration time.Duration) int {
 	return int(duration.Hours())
 }
 
-func ConvertDaysToWeeks(days int) api.WeekDay{
-	weeks := days/7
-	daysInWeek := days%7
-	return api.WeekDay{
-		Weeks:weeks,
-		Days:daysInWeek,
+func ConvertDaysToWeeks(days int) WeekDay {
+	weeks := days / 7
+	daysInWeek := days % 7
+	return WeekDay{
+		Weeks: weeks,
+		Days:  daysInWeek,
 	}
 }
