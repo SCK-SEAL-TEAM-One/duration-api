@@ -285,3 +285,75 @@ func Test_ConvertDaysToWeeks_8526_Days_Should_Weeks_1218_DaysInWeek_0(t *testing
 		t.Errorf("need %v but got %v", expectedResult, actualResult)
 	}
 }
+
+func Test_CalculateMonthsBetweenStartTimeAndEndTime_StartYear_1997_StartMonth_10_StartDay_16_And_EndYear_2019_EndMonth_06_EndDay_10_Should_259_Months_25_Days(t *testing.T) {
+	starttime := api.YearMonthDay{
+		Year:1997,
+		Month:10,
+		Day:16,
+	}
+	endtime := api.YearMonthDay{
+		Year:2019,
+		Month:6,
+		Day:10,
+	}
+
+	expectedResult := api.MonthDay{
+		Months:259,
+		Days:25,
+	}
+
+	actualResult := CalculateMonthsBetweenStartTimeAndEndTime(starttime,endtime)
+
+	if actualResult != expectedResult {
+		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
+	}
+}
+
+func Test_CalculateMonthsBetweenStartTimeAndEndTime_StartYear_1997_StartMonth_10_StartDay_27_And_EndYear_2019_EndMonth_06_EndDay_10_Should_259_Months_14_Days(t *testing.T) {
+	starttime := api.YearMonthDay{
+		Year:1997,
+		Month:10,
+		Day:27,
+	}
+	endtime := api.YearMonthDay{
+		Year:2019,
+		Month:6,
+		Day:10,
+	}
+
+	expectedResult := api.MonthDay{
+		Months:259,
+		Days:14,
+	}
+
+	actualResult := CalculateMonthsBetweenStartTimeAndEndTime(starttime,endtime)
+
+	if actualResult != expectedResult {
+		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
+	}
+}
+
+func Test_CalculateMonthsBetweenStartTimeAndEndTime_StartYear_1996_StartMonth_2_StartDay_5_And_EndYear_2019_EndMonth_06_EndDay_10_Should_259_Months_14_Days(t *testing.T) {
+	starttime := api.YearMonthDay{
+		Year:1996,
+		Month:2,
+		Day:5,
+	}
+	endtime := api.YearMonthDay{
+		Year:2019,
+		Month:6,
+		Day:10,
+	}
+
+	expectedResult := api.MonthDay{
+		Months:280,
+		Days:5,
+	}
+
+	actualResult := CalculateMonthsBetweenStartTimeAndEndTime(starttime,endtime)
+
+	if actualResult != expectedResult {
+		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
+	}
+}
