@@ -34,3 +34,12 @@ func GetMinutesFromDuration(duration time.Duration) int {
 func GetHoursFromDuration(duration time.Duration) int {
 	return int(duration.Hours())
 }
+
+func ConvertDaysToWeeks(days int) api.WeekDay{
+	weeks := days/7
+	daysInWeek := days%7
+	return api.WeekDay{
+		Weeks:weeks,
+		Days:daysInWeek,
+	}
+}

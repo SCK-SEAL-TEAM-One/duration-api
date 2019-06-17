@@ -214,4 +214,47 @@ func Test_GetHoursFromDuration_Duration_736646400_Seconds_Should_204624_Hours(t 
 	}
 }
 
+func Test_ConvertDaysToWeeks_7907_Days_Should_Weeks_1129_DaysInWeek_4(t *testing.T) {
+	weekday := api.WeekDay{
+		Weeks:1129,
+		Days:4,
+	}
 
+	expectedResult := weekday
+
+	actualResult := ConvertDaysToWeeks(7907)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
+
+func Test_ConvertDaysToWeeks_7896_Days_Should_Weeks_1128_DaysInWeek_0(t *testing.T) {
+	weekday := api.WeekDay{
+		Weeks:1128,
+		Days:0,
+	}
+
+	expectedResult := weekday
+
+	actualResult := ConvertDaysToWeeks(7896)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
+
+func Test_ConvertDaysToWeeks_8526_Days_Should_Weeks_1218_DaysInWeek_0(t *testing.T) {
+	weekday := api.WeekDay{
+		Weeks:1218,
+		Days:0,
+	}
+
+	expectedResult := weekday
+
+	actualResult := ConvertDaysToWeeks(8526)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
