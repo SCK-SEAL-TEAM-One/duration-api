@@ -79,6 +79,33 @@ func Test_ConvertTimeToFullDate_Time_Day_16_Month_10_Year_1997_Should_Thursday_1
 	}
 }
 
+func Test_ConvertTimeToFullDate_Time_Day_27_Month_10_Year_1997_Should_Monday_27_October_1997(t *testing.T) {
+	time := time.Date(1997, 10, 27, 0, 0, 0, 0, time.UTC)
+	expectedResult := "Monday, 27 October 1997"
+	actualResult := ConvertTimeToFullDate(time)
+	if actualResult != expectedResult {
+		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
+	}
+}
+
+func Test_ConvertTimeToFullDate_Time_Day_5_Month_2_Year_1996_Should_Monday_5_February_1996(t *testing.T) {
+	time := time.Date(1996, 2, 5, 0, 0, 0, 0, time.UTC)
+	expectedResult := "Monday, 5 February 1996"
+	actualResult := ConvertTimeToFullDate(time)
+	if actualResult != expectedResult {
+		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
+	}
+}
+
+func Test_ConvertTimeToFullDate_Time_Day_10_Month_6_Year_2019_Should_Monday_10_June_2019(t *testing.T) {
+	time := time.Date(2019, 6, 10, 0, 0, 0, 0, time.UTC)
+	expectedResult := "Monday, 10 June 2019"
+	actualResult := ConvertTimeToFullDate(time)
+	if actualResult != expectedResult {
+		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
+	}
+}
+
 func TestCalculateDurationBetweenTime_Year_1997_Month_10_Day_16_And_Year_2019_Month_06_Day_10_Should_Get_Duration_683164800_Seconds(t *testing.T) {
 	expectedResult, _ := time.ParseDuration("683164800s")
 	startTime := time.Date(1997, 10, 16, 0, 0, 0, 0, time.UTC)
