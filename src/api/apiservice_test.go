@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestApiDurationBetweenTimesPut_StartDay_16_StartMonth_10_StartYear_1997_EndDay_10_EndMonth_6_EndYear_2019_Should_Get_Duration_Response(t *testing.T){
+func TestApi_DurationBetweenTimes_Put_StartDay_16_StartMonth_10_StartYear_1997_EndDay_10_EndMonth_6_EndYear_2019_Should_Get_Duration_Response(t *testing.T){
 	url := "/duration"
 	body := strings.NewReader(`{"Start": {"day": 16,"month": 10,"year": 1997},"End": {"day": 10,"month": 6,"year": 2019}}`)
 	request := httptest.NewRequest("GET",url,body)
@@ -23,7 +23,7 @@ func TestApiDurationBetweenTimesPut_StartDay_16_StartMonth_10_StartYear_1997_End
 	}
 }
 
-func Test_Request_StartDay_16_StartMonth_10_StartYear_1997_EndDay_10_EndMonth_6_EndYear_2019_Should_Get_DayMonthYear(t *testing.T){
+func Test_GetYearMonthDayFromRequestDate_Request_StartDay_16_StartMonth_10_StartYear_1997_EndDay_10_EndMonth_6_EndYear_2019_Should_Get_RequestDate(t *testing.T){
 	url := "/duration"
 	body := strings.NewReader(`{"Start": {"day": 16,"month": 10,"year": 1997},"End": {"day": 10,"month": 6,"year": 2019}}`)
 	request := httptest.NewRequest("GET",url,body)
