@@ -181,4 +181,37 @@ func Test_GetMinutesFromDuration_Duration_736646400_Seconds_Should_12277440_Minu
 	}
 }
 
+func Test_GetHoursFromDuration_Duration_683164800_Seconds_Should_189768_Hours(t *testing.T) {
+	expectedResult := 189768
+	duration, _ := time.ParseDuration("683164800s")
+
+	actualResult := GetHoursFromDuration(duration)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
+
+func Test_GetHoursFromDuration_Duration_682214400_Seconds_Should_189504_Hours(t *testing.T) {
+	expectedResult := 189504
+	duration, _ := time.ParseDuration("682214400s")
+
+	actualResult := GetHoursFromDuration(duration)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
+
+func Test_GetHoursFromDuration_Duration_736646400_Seconds_Should_204624_Hours(t *testing.T) {
+	expectedResult := 204624
+	duration, _ := time.ParseDuration("736646400s")
+
+	actualResult := GetHoursFromDuration(duration)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
+
 

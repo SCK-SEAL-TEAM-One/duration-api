@@ -30,3 +30,7 @@ func GetSecondsFromDuration(duration time.Duration) int {
 func GetMinutesFromDuration(duration time.Duration) int {
 	return int(duration.Minutes())
 }
+
+func GetHoursFromDuration(duration time.Duration) int {
+	return int(duration.Hours())
+}
