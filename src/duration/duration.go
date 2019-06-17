@@ -10,6 +10,5 @@ func ConvertYearMonthDayToTime(yearmonthday api.YearMonthDay) time.Time {
 }
 
 func CalculateDurationBetweenTime(startTime time.Time, endTime time.Time) time.Duration {
-	duration, _ := time.ParseDuration("683164800s")
-	return duration
+	return endTime.Sub(startTime)
 }
