@@ -241,23 +241,36 @@ func Test_GetHoursFromDuration_Duration_736646400_Seconds_Should_204624_Hours(t 
 	}
 }
 
-// func Test_ConvertTimeToFullDate_Time_Day_5_Month_2_Year_1996_Should_Monday_5_February_1996(t *testing.T) {
-// 	time := time.Date(1996, 2, 5, 0, 0, 0, 0, time.UTC)
-// 	expectedResult := "Monday, 5 February 1996"
-// 	actualResult := ConvertTimeToFullDate(time)
-// 	if actualResult != expectedResult {
-// 		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
-// 	}
-// }
+func Test_ConvertHoursToDays_189768_Hours_Should_7907_Days(t *testing.T) {
+	expectedResult := 7907
 
-// func Test_ConvertTimeToFullDate_Time_Day_10_Month_6_Year_2019_Should_Monday_10_June_2019(t *testing.T) {
-// 	time := time.Date(2019, 6, 10, 0, 0, 0, 0, time.UTC)
-// 	expectedResult := "Monday, 10 June 2019"
-// 	actualResult := ConvertTimeToFullDate(time)
-// 	if actualResult != expectedResult {
-// 		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
-// 	}
-// }
+	actualResult := ConvertHoursToDays(189768)
+
+	if expectedResult != actualResult {
+		t.Errorf("Expect %v but got %v", expectedResult, actualResult)
+	}
+}
+
+func Test_ConvertHoursToDays_189504_Hours_Should_7896_Days(t *testing.T) {
+	expectedResult := 7896
+
+	actualResult := ConvertHoursToDays(189504)
+
+	if expectedResult != actualResult {
+		t.Errorf("Expect %v but got %v", expectedResult, actualResult)
+	}
+}
+
+func Test_ConvertHoursToDays_204624_Hours_Should_8526_Days(t *testing.T) {
+	expectedResult := 8526
+
+	actualResult := ConvertHoursToDays(204624)
+
+	if expectedResult != actualResult {
+		t.Errorf("Expect %v but got %v", expectedResult, actualResult)
+	}
+}
+
 func Test_ConvertDaysToWeeks_7907_Days_Should_Weeks_1129_DaysInWeek_4(t *testing.T) {
 	weekday := WeekDay{
 		Weeks: 1129,

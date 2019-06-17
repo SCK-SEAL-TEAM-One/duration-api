@@ -36,6 +36,11 @@ func GetHoursFromDuration(duration time.Duration) int {
 	return int(duration.Hours())
 }
 
+func ConvertHoursToDays(hours int) int {
+	days := hours/24
+	return days
+}
+
 func ConvertDaysToWeeks(days int) WeekDay {
 	weeks := days / 7
 	daysInWeek := days % 7
