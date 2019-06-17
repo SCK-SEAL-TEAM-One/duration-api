@@ -105,3 +105,36 @@ func TestCalculateDurationBetweenTime_Year_1996_Month_02_Day_05_And_Year_2019_Mo
 		t.Errorf("need %v but got %v", expectedResult, actualResult)
 	}
 }
+
+func Test_GetSecondsFromDuration_Duration_683164800_Seconds_Should_683164800_Seconds(t *testing.T){
+	expectedResult := 683164800
+	duration,_ := time.ParseDuration("683164800s")
+
+	actualResult := GetSecondsFromDuration(duration)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
+
+func Test_GetSecondsFromDuration_Duration_682214400_Seconds_Should_682214400_Seconds(t *testing.T){
+	expectedResult := 682214400
+	duration,_ := time.ParseDuration("682214400s")
+
+	actualResult := GetSecondsFromDuration(duration)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
+
+func Test_GetSecondsFromDuration_Duration_736646400_Seconds_Should_736646400_Seconds(t *testing.T){
+	expectedResult := 736646400
+	duration,_ := time.ParseDuration("736646400s")
+
+	actualResult := GetSecondsFromDuration(duration)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}

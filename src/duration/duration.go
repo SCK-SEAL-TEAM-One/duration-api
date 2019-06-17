@@ -12,3 +12,7 @@ func ConvertYearMonthDayToTime(yearmonthday api.YearMonthDay) time.Time {
 func CalculateDurationBetweenTime(startTime time.Time, endTime time.Time) time.Duration {
 	return endTime.Sub(startTime)
 }
+
+func GetSecondsFromDuration(duration time.Duration) int {
+	return int(duration.Seconds())
+}
