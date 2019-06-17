@@ -70,6 +70,15 @@ func Test_ConvertYearMonthDayToTime_2019_Year_6_Month_10_Day_Should_Time_Year_20
 	}
 }
 
+func Test_ConvertTimeToFullDate_Time_Day_16_Month_10_Year_1997_Should_Thursday_16_October_1997(t *testing.T) {
+	time := time.Date(1997, 10, 16, 0, 0, 0, 0, time.UTC)
+	expectedResult := "Thursday, 16 October 1997"
+	actualResult := ConvertTimeToFullDate(time)
+	if actualResult != expectedResult {
+		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
+	}
+}
+
 func TestCalculateDurationBetweenTime_Year_1997_Month_10_Day_16_And_Year_2019_Month_06_Day_10_Should_Get_Duration_683164800_Seconds(t *testing.T) {
 	expectedResult, _ := time.ParseDuration("683164800s")
 	startTime := time.Date(1997, 10, 16, 0, 0, 0, 0, time.UTC)
@@ -139,11 +148,37 @@ func Test_GetSecondsFromDuration_Duration_736646400_Seconds_Should_736646400_Sec
 	}
 }
 
-func Test_ConvertTimeToFullDate_Time_Day_16_Month_10_Year_1997_Should_Thursday_16_October_1997(t *testing.T) {
-	time := time.Date(1997, 10, 16, 0, 0, 0, 0, time.UTC)
-	expectedResult := "Thursday, 16 October 1997"
-	actualResult := ConvertTimeToFullDate(time)
-	if actualResult != expectedResult {
-		t.Errorf("Expect %v but get %v", expectedResult, actualResult)
+func Test_GetMinutesFromDuration_Duration_683164800_Seconds_Should_11386080_Minutes(t *testing.T) {
+	expectedResult := 11386080
+	duration, _ := time.ParseDuration("683164800s")
+
+	actualResult := GetMinutesFromDuration(duration)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
 	}
 }
+
+func Test_GetMinutesFromDuration_Duration_682214400_Seconds_Should_11370240_Minutes(t *testing.T) {
+	expectedResult := 11370240
+	duration, _ := time.ParseDuration("682214400s")
+
+	actualResult := GetMinutesFromDuration(duration)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
+
+func Test_GetMinutesFromDuration_Duration_736646400_Seconds_Should_12277440_Minutes(t *testing.T) {
+	expectedResult := 12277440
+	duration, _ := time.ParseDuration("736646400s")
+
+	actualResult := GetMinutesFromDuration(duration)
+
+	if expectedResult != actualResult {
+		t.Errorf("need %v but got %v", expectedResult, actualResult)
+	}
+}
+
+
