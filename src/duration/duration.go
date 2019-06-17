@@ -49,3 +49,20 @@ func ConvertDaysToWeeks(days int) WeekDay {
 		Days:  daysInWeek,
 	}
 }
+
+func CalculateMonthsBetweenStartTimeAndEndTime(start YearMonthDay,end YearMonthDay) MonthDay {
+	diffYear :=  end.Year-start.Year
+	diffMonth := diffYear * 12
+	diffMonth = diffMonth + (end.Month - start.Month)
+	diffDay := end.Day-start.Day
+
+	if diffDay < 0 {
+		diffDay += 31
+		diffMonth--
+	}
+
+	return MonthDay{
+		Months:diffMonth,
+		Days:diffDay,
+	}
+}
