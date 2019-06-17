@@ -14,3 +14,11 @@ func ConvertTimeToFullDate(time time.Time) string {
 
 	return fullDate
 }
+
+func CalculateDurationBetweenTime(startTime time.Time, endTime time.Time) time.Duration {
+	return endTime.Sub(startTime)
+}
+
+func GetSecondsFromDuration(duration time.Duration) int {
+	return int(duration.Seconds())
+}
