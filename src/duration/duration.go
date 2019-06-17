@@ -26,3 +26,5 @@ func CalculateDurationBetweenTime(startTime time.Time, endTime time.Time) time.D
 func GetSecondsFromDuration(duration time.Duration) int {
 	return int(duration.Seconds())
 }
+
+
